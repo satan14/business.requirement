@@ -50,6 +50,11 @@ li {
 }
 /* **** 1.GENERAL /**** */
 /* **** 2.SIGN UP **** */
+.content {
+  margin-top: 10px;
+  background-color: cadetblue;
+  border-radius: 5px;
+}
 .info_user {
   display: flex;
   justify-content: center;

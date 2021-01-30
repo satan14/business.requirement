@@ -6,4 +6,5 @@ const upload = multer({
     dest: 'public/img/avatar'
 });
 router.post('/signUp',upload.single('avatar'), userCtl.signUp)
+router.get('/verify-email', userCtl.signUp)
 module.exports = router;
