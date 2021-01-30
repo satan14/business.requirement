@@ -1,0 +1,152 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+a:hover {
+  text-decoration: none;
+  color: bisque;
+}
+li {
+  display: inline-block;
+}
+/* 
+    1. GENERAL
+*/
+/* **** 1.GENERAL **** */
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+.nav-menu {
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px;
+  background-image: url("../img/background-nav.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.nav-menu > ul {
+  position: absolute;
+  left: 20%;
+  bottom: 10px;
+}
+.nav-menu > ul > li {
+  padding-left: 50px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.logo {
+  float: left;
+  width: 20%;
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+/* **** 1.GENERAL /**** */
+/* **** 2.SIGN UP **** */
+.info_user {
+  display: flex;
+  justify-content: center;
+}
+.avatar > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid;
+}
+
+.avatar > img:hover + span > label {
+  opacity: 1;
+  visibility: visible;
+}
+
+.avatar {
+  position: relative;
+  text-align: center;
+}
+.avatar span label:hover {
+  opacity: 1;
+  visibility: visible;
+}
+.avatar span label {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: inline-block;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.481);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.4s;
+  visibility: hidden;
+}
+.avatar span input {
+  display: none;
+}
+.profile {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 3em rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  padding: 30px;
+  width: 50%;
+  background: #96d4af;
+}
+
+.form_group_ntt {
+  display: flex;
+}
+
+.form_group_ntt {
+  margin: 10px 0;
+}
+.form_group_ntt > label {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  padding-left: 10px;
+  width: 35%;
+  color: var(--mau4);
+}
+.form_group_ntt > input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 10px;
+  border-bottom: 2px solid var(--mau4);
+  font-weight: 700;
+  width: 65%;
+  color: var(--mau4);
+}
+.update_info {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.update_info > button {
+  display: block;
+  padding: 10px 0;
+  width: 50%;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: 10px;
+  background: var(--mau4);
+  color: var(--mau1);
+  outline: none;
+  cursor: pointer;
+}

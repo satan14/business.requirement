@@ -13,22 +13,17 @@ require('./middlewares/view.mdw')(app);
 app.use('/public', express.static('public'));
 
 
-app.use('/user', require('./routers/user.router'));
-app.use('/admin', require('./routers/admin.router'));
-app.use('/device', require('./routers/device.router'));
-app.use('/report', require('./routers/report.router'));
+app.use('/auth', require('./routers/auth.router'));
 
-app.use('/menu', require('./routers/menu.router'));
-
-app.get('/', auth, function (req, res) {
-    res.render('home/home');
+app.get('/', function (req, res) {
+    res.render('user/home');
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(function (req, res) {
-    res.render('notification/404', { layout: false });
+    res.render('errors/404', { layout: false });
 })
 app.use(function (err, req, res, next) {
-    res.status(500).render('notification/404', { layout: false });
+    res.status(500).render('errors/404', { layout: false });
 })
 const PORT = process.env.PORT || 9000;
 http.listen(PORT, () => {
