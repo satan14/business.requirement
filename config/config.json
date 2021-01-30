@@ -1,0 +1,11 @@
+{ 
+    "mysql": {
+        "host": "sql12.freemysqlhosting.net",
+        "user": "sql12389073",
+        "password": "Um8WXnixWw",
+        "database": "sql12389073",
+        "port": 3306,
+        "connectionLimit": 30
+    },
+    "URL": "http://localhost:9000"
+}
