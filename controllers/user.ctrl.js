@@ -6,7 +6,7 @@ const userCtl = {
     signUp: async function(req,res){
         var {fullName, birthday, email, phone,avatar} = req.body;
         const{filename} = req.file;
-        var emailToken = crypto.randomBytes(64).toString('hex');
+        var emailToken = crypto.randomBytes(36).toString('hex');
         let entity={
             fullName: fullName,
             email: email,
@@ -23,7 +23,7 @@ const userCtl = {
             text: `Welcome to Satan Footbal Club.`,
             html: `<h1>Thank you for sign up manager position</h1>
                 <p>Please click the link below to verify your email</p>
-                <a href="http://${req.headers.host}/auth/listRegister">Verify your email</a>
+                <a href="http://${req.headers.host}/auth/listRegister?token=${emailToken}">Verify your email</a>
             `
         }
         try {
@@ -40,8 +40,34 @@ const userCtl = {
             console.log(error);
         }
     },
-    verifyEmail: function(req, res){
-      return res.json({msg: "ok"});
+    verifyEmail: async function(req, res){
+        let {token} = req.query;
+        let entity ={
+            isVerified: true
+        }
+        let condition ={
+            emailToken: token
+        }
+        try {
+            await userModel.updateIsVerified(entity,condition);
+            let listAll = []
+            listAll = await userModel.findIsVerified();
+            for (let index = 0; index < listAll.length; index++) {
+                if (listAll[index].birthday != null) {
+                    let date = new Date(+listAll[index].birthday*1000);
+                    let y = date.getFullYear();
+                    let m = date.getMonth();
+                    let d = date.getDate();
+                    let time = d + '/' + (m+1) + '/' + y;
+                    listAll[index].birthday = time;
+                }
+            }
+            res.render('user/listRegister', {
+                listAll
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 module.exports = userCtl;

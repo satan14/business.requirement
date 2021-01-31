@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+a {
+  text-decoration: none;
+}
 a:hover {
   text-decoration: none;
   color: bisque;
@@ -11,8 +14,20 @@ a:hover {
 li {
   display: inline-block;
 }
+.table {
+  margin: 20px 0;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 3em rgba(0, 0, 0, 0.3);
+}
+.table td,
+.table th {
+  font-size: 18px;
+  padding: 10px;
+}
 /* 
     1. GENERAL
+    2. SIGN UP
+    3. LIST
 */
 /* **** 1.GENERAL **** */
 .container {
@@ -47,6 +62,7 @@ li {
   background-size: cover;
   background-position: center;
   height: 100%;
+  cursor: pointer;
 }
 /* **** 1.GENERAL /**** */
 /* **** 2.SIGN UP **** */
@@ -165,3 +181,42 @@ li {
   display: none;
   box-shadow: 0 0 11px 2px #eee;
 }
+/* **** 2.SIGN UP /**** */
+/* **** 3.LIST **** */
+.titleLogin h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(125, 201, 64);
+  padding: 20px;
+  font-size: 24px;
+  margin-top: 20px;
+  background-color: rgb(33, 62, 63);
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table .thead-dark th {
+  background-color: rgb(13, 37, 37);
+  border-color: rgb(13, 37, 37);
+  padding: 10px;
+  color: aliceblue;
+}
+.table tbody tr {
+  background: #90bce2;
+  text-align: center;
+  cursor: pointer;
+}
+.table tbody tr:hover {
+  background: #c2cae2;
+}
+.img-list > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid;
+}
+/* **** 3.LIST /**** */

@@ -6,5 +6,11 @@ module.exports = {
     },
     findbyEmail: async function(email){
         return await db.load(`select * from ${TBL_USERS} a where a.email = "${email}"`);
+    },
+    findIsVerified: async function(){
+        return await db.load(`select * from ${TBL_USERS} a where a.isVerified = true`);
+    },
+    updateIsVerified: async function(entity, condition){
+        await db.patch(TBL_USERS,entity,condition);
     }
 }
