@@ -155,3 +155,13 @@ li {
   outline: none;
   cursor: pointer;
 }
+.showErrr {
+  background: black;
+  color: bisque;
+  text-align: center;
+  padding: 10px 0;
+  letter-spacing: 1.3px;
+  margin: 10px 0;
+  display: none;
+  box-shadow: 0 0 11px 2px #eee;
+}

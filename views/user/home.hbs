@@ -40,7 +40,7 @@
     width: 150px;
 " type="date" id="birthday" name="birthday">
             </div>
-            <div class="update_info"> <button onclick="handleSignup()">Sign up</button></div>
+            <div class="update_info"> <button id="btn-signup" onclick="handleSignup()">Sign up</button></div>
         </div>
     </main>
 </div>
@@ -62,6 +62,7 @@
         }
     })
     function handleSignup() {
+        document.getElementById("btn-signup").disabled = true;
         let fullName = document.getElementById('name').value;
         let image_avatar = document.querySelector("#input-avatar").files[0];
         let email = document.getElementById('email').value;
@@ -90,12 +91,20 @@
             processData: false,
             headers: { "X-CSRF-Token": $("meta[name='csrf-token']").attr("content") },
             success: function (data) {
-                $(".showErrr").html("Đăng ký thành công!");
-                $(".showErrr").css("display", "block");
-                setTimeout(() => {
-                    $(".showErrr").css("display", "none");
-                    window.location.replace("/user/logout");
-                }, 2000);
+                if (data.err) {
+                    $(".showErrr").html("This Email has registed. Please sign up again!");
+                    $(".showErrr").css("display", "block");
+                    setTimeout(() => {
+                        $(".showErrr").css("display", "none");
+                        window.location.reload(false);
+                    }, 2000);
+                } else {
+                    $(".showErrr").html("Please check you email to verify.");
+                    $(".showErrr").css("display", "block");
+                    setTimeout(() => {
+                        $(".showErrr").css("display", "none");
+                    }, 3000);
+                }
             },
             error: function (data) {
 
